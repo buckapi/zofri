@@ -375,7 +375,7 @@ public loadBranchs(){
     });  
 }
   ngAfterViewInit(): void {
-     $('#body').addClass("body-scroll theme-red bg-theme transform-page-scale");
+     $('#body').addClass("body-scroll theme-orange bg-theme transform-page-scale");
     this.stylist = this.formBuilder.group(
       {
         name: ['', Validators.required],
