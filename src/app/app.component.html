@@ -21,13 +21,20 @@
                 <div class="col-12 profile-sidebar">
                     <div class="row">
                         <div class="col-auto">
-                            <figure class="avatar avatar-80 rounded-18 shadow-sm p-1 bg-white">
-                                <img src="assets/assetsrest/img/user1.jpg" alt="" class="rounded-15">
+                            <figure class="avatar avatar-80 rounded-18 shadow-sm p-1 bg-white" (click)="colorChange('azul')">
+                                <img src="assets/assetsrest/img/user1.jpg " (click)="colorChange('azul')" alt="" class="rounded-15">
                             </figure>
                         </div>
                         <div class="col px-0 align-self-center">
-                            <h5 class="mb-2">John Winsels</h5>
-                            <p class="text-muted size-12">New York City,<br />United States</p>
+                            <h5 class="mb-2">John Winsels</h5>      <a class="nav-link" (click)="colorChange('azul')" [hidden]="color!='naranja'" tabindex="-1" >
+                              
+                                <div class="col"> <i class="bi bi-star-fill text-info small"></i></div>
+                            </a>
+                               <a class="nav-link" [hidden]="color!='azul'" (click)="colorChange('naranja')" tabindex="-1">
+                               
+                                <div class="col"> <i class="bi bi-star-fill text-warning small"></i></div>
+                            </a>
+                            <p class="text-muted size-12">Presiona para cambiar el color del tema, <br /> {{color}}</p>
                         </div>
                     </div>
                 </div>
@@ -127,13 +134,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="style.html" tabindex="-1">
-                                <div class="avatar avatar-40 icon"><i class="bi bi-palette"></i></div>
-                                <div class="col">Style <i class="bi bi-star-fill text-warning small"></i></div>
-                                <div class="arrow"><i class="bi bi-chevron-right"></i></div>
-                            </a>
-                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="pages.html" tabindex="-1">

@@ -118,6 +118,7 @@ three=false;
     spaceBetween: 30
   };
   title = 'restaurant';
+  color = 'naranja';
 element:any;
 public quantity : number=1; 
 public sent : boolean=false; 
@@ -374,6 +375,24 @@ public loadBranchs(){
       }
     });  
 }
+
+public colorChange(color:any)
+  {
+    if (color=='azul'){
+      this.color='azul';
+     $('#body').removeClass("body-scroll theme-orange bg-theme transform-page-scale");
+     $('#body').addClass("body-scroll theme-blue bg-theme transform-page-scale");
+
+    }
+    if (color=='naranja'){
+      this.color='naranja';
+     $('#body').removeClass("body-scroll theme-blue bg-theme transform-page-scale");
+      $('#body').addClass("body-scroll theme-orange bg-theme transform-page-scale");
+      
+    }
+    console.log("cabiando color");
+      }
+
   ngAfterViewInit(): void {
      $('#body').addClass("body-scroll theme-orange bg-theme transform-page-scale");
     this.stylist = this.formBuilder.group(
