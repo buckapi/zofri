@@ -49,6 +49,8 @@ export class HeaderComponent implements AfterViewInit {
     spaceBetween: 5,
     navigation: false
   };  
+  public openFilter(){  
+      $('#body').addClass("body-scroll theme-blue bg-theme transform-page-scale filter-open");}
 
   public details(b:any){
     let a =b;

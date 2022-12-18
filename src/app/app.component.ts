@@ -118,7 +118,7 @@ three=false;
     spaceBetween: 30
   };
   title = 'restaurant';
-  color = 'naranja';
+  color = 'azul';
 element:any;
 public quantity : number=1; 
 public sent : boolean=false; 
@@ -394,7 +394,7 @@ public colorChange(color:any)
       }
 
   ngAfterViewInit(): void {
-     $('#body').addClass("body-scroll theme-orange bg-theme transform-page-scale");
+     $('#body').addClass("body-scroll theme-blue bg-theme transform-page-scale");
     this.stylist = this.formBuilder.group(
       {
         name: ['', Validators.required],

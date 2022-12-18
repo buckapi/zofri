@@ -26,7 +26,7 @@
                             </figure>
                         </div>
                         <div class="col px-0 align-self-center">
-                            <h5 class="mb-2">Zona Franca de Iquique</h5>      <a class="nav-link" (click)="colorChange('azul')" [hidden]="color!='naranja'" tabindex="-1" >
+                            <h5 class="mb-2">ZOFRI</h5>      <a class="nav-link" (click)="colorChange('azul')" [hidden]="color!='naranja'" tabindex="-1" >
                               
                                 <div class="col"> <i class="bi bi-star-fill text-info small"></i></div>
                             </a>
@@ -212,7 +212,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col align-self-center">
-                        <h6 class="mb-0">Filter Criteria</h6>
+                        <h6 class="mb-0">Busqueda avanzada</h6>
                         <p class="text-secondary small">2154 products</p>
                     </div>
                     <div class="col-auto px-0">
@@ -223,6 +223,10 @@
                 </div>
             </div>
             <div class="card-body overflow-auto">
+                 <div class="form-floating mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar">
+                    <label for="input-select">Buscar...</label>
+                </div>
                 <div class="mb-4">
                     <h6>Select Range</h6>
                     <div id="rangeslider" class="mt-4"></div>
@@ -278,10 +282,7 @@
                     </div>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="Keyword">
-                    <label for="input-select">Keyword</label>
-                </div>
+               
 
                 <div class="form-floating mb-3">
                     <select class="form-control" id="discount">
