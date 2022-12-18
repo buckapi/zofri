@@ -1,8 +1,8 @@
 {
   "name": "ZOFRI",
   "short_name": "ZOFRI",
-  "theme_color": "#fd7e14",
-  "background_color": "#fd7e14",
+  "theme_color": "#012a60",
+  "background_color": "#012a60",
   "display": "fullscreen",
   "scope": "./",
   "start_url": "./",
