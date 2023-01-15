@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RestaurantRoutingModule } from './restaurant-routing.module';
 import { RestaurantComponent } from './restaurant.component';
 
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { RestaurantComponent } from './restaurant.component';
   ],
   imports: [
     CommonModule,
-    RestaurantRoutingModule
+    RestaurantRoutingModule,
+    NgxUsefulSwiperModule
   ]
 })
 export class RestaurantModule { }
