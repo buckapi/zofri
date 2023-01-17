@@ -2,15 +2,17 @@ import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { SwiperOptions } from 'swiper';
 import { Butler } from '@services/butler.service';
 import { DataApiService } from '@services/data-api.service'; 
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-restaurant',
-  templateUrl: './restaurant.component.html',
-  styleUrls: ['./restaurant.component.css']
+  selector: 'app-welcome',
+  templateUrl: './welcome.component.html',
+  styleUrls: ['./welcome.component.css']
 })
-export class RestaurantComponent implements AfterViewInit {
+export class WelcomeComponent implements AfterViewInit {
 members$:any=[];
 parts$:any=[];
   constructor(
+    private readonly router: Router,
     public _butler:Butler,
     public dataApiService: DataApiService,
     ) { }
@@ -27,17 +29,20 @@ parts$:any=[];
     navigation: false
   };  
 
-public getParts(){
-  this.dataApiService.getAllParts().subscribe(response=>{
-      this.parts$=response;
-    });
-}
-public getMembers(){
-  this.dataApiService.getAllMembers().subscribe(response=>{
-      this.members$=response;
-    });
-}
-
+  public getParts(){
+    this.dataApiService.getAllParts().subscribe(response=>{
+        this.parts$=response;
+      });
+  }
+  public getMembers(){
+    this.dataApiService.getAllMembers().subscribe(response=>{
+        this.members$=response;
+      });
+  }
+  public setPreview(part:any){
+    this._butler.preview=part;
+    this.router.navigate(['/detail']);
+  }
   ngAfterViewInit(): void {
     this.getMembers();
     this.getParts();

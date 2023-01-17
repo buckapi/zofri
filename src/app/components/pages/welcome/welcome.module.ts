@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { RestaurantRoutingModule } from './restaurant-routing.module';
-import { RestaurantComponent } from './restaurant.component';
-
+import { WelcomeRoutingModule } from './welcome-routing.module';
+import { WelcomeComponent } from './welcome.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 @NgModule({
   declarations: [
-    RestaurantComponent
+    WelcomeComponent
   ],
   imports: [
     CommonModule,
-    RestaurantRoutingModule,
+    WelcomeRoutingModule,
     NgxUsefulSwiperModule
   ]
 })
-export class RestaurantModule { }
+export class WelcomeModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Butler } from '@services/butler.service';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  public _butler:Butler,
+
+    ) { }
 
   ngOnInit(): void {
   }
