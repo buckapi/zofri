@@ -47,6 +47,10 @@ export class DataApiService {
 		const url_api = 'https://db.buckapi.us:9001/api/branchs';
 		return this.http.get(url_api);
 	}
+	getAllParts(){
+		const url_api = 'https://db.buckapi.us:9001/api/products';
+		return this.http.get(url_api);
+	}
 	getAllCategories(){
 		const url_api = 'https://db.buckapi.us:9001/api/cards';
 		return this.http.get(url_api);
@@ -56,7 +60,7 @@ export class DataApiService {
 		return this.http.get(url_api);
 	}
 	getAllMembers(){
-		const url_api = 'https://db.buckapi.us:9001/api/members';
+		const url_api = 'https://db.buckapi.us:9001/api/cards';
 		return this.http.get(url_api);
 	}
 	updateSpecialty(specialty :SpecialtyInterface, id: string){

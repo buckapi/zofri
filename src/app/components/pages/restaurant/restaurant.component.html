@@ -5,90 +5,21 @@
                     <!-- swiper categories -->
                      <swiper [config]="config">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide " >
+                            <div class="swiper-slide " *ngFor='let member of members$; let i = index' [hidden]="member.userType!='member'">
                                 <a class="card text-center bg-theme text-white">
                                     <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
+                                       <!--  <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
+                                        </div> -->
                                         <figure class="avatar avatar-60 rounded-15 mb-1 coverimg">
-                                            <img src="assets/assetsrest/img/intro6.jpg" alt="" alt="">
+                                            <img src="{{member.images[0]}}" alt="" alt="">
                                         </figure>
-                                         <p class="text-center size-12"><small class="text-muted">Burger</small><br />$ 41.00</p>
+                                         <p class="text-center size-12"><small class="text-muted">{{member.name}}</small>
+                                            <!-- <br />$ 41.00 -->
+                                        </p>
                                     </div>
                                 </a>                               
                             </div>
-                            <div class="swiper-slide " >
-                                <a class="card text-center bg-theme text-white">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-60 rounded-15 mb-1 coverimg">
-                                            <img src="assets/assetsrest/img/intro5.jpg" alt="" alt="">
-                                        </figure>
-                                         <p class="text-center size-12"><small class="text-muted">Burger</small><br />$ 41.00</p>
-                                    </div>
-                                </a>                               
-                            </div>
-                            <div class="swiper-slide " >
-                                <a class="card text-center bg-theme text-white">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-60 rounded-15 mb-1 coverimg">
-                                            <img src="assets/assetsrest/img/intro3.jpg" alt="" alt="">
-                                        </figure>
-                                         <p class="text-center size-12"><small class="text-muted">Burger</small><br />$ 41.00</p>
-                                    </div>
-                                </a>                               
-                            </div>
-                            <div class="swiper-slide " >
-                                <a class="card text-center bg-theme text-white">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-60 rounded-15 mb-1 coverimg">
-                                            <img src="assets/assetsrest/img/intro4.jpg" alt="" alt="">
-                                        </figure>
-                                         <p class="text-center size-12"><small class="text-muted">Burger</small><br />$ 41.00</p>
-                                    </div>
-                                </a>                               
-                            </div>
-                            <div class="swiper-slide " >
-                                <a class="card text-center bg-theme text-white">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-60 rounded-15 mb-1 coverimg">
-                                            <img src="assets/assetsrest/img/intro2.jpg" alt="" alt="">
-                                        </figure>
-                                         <p class="text-center size-12"><small class="text-muted">Burger</small><br />$ 41.00</p>
-                                    </div>
-                                </a>                               
-                            </div>
-                            <div class="swiper-slide " >
-                                <a class="card text-center bg-theme text-white">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-60 rounded-15 mb-1 coverimg">
-                                            <img src="assets/assetsrest/img/intro4.jpg" alt="" alt="">
-                                        </figure>
-                                         <p class="text-center size-12"><small class="text-muted">Burger</small><br />$ 41.00</p>
-                                    </div>
-                                </a>                               
-                            </div>
-                            <div class="swiper-slide " >
-                                <a class="card text-center bg-theme text-white">
-                                    <div class="card-body p-1">
-                                        <div class="position-absolute end-0 top-0 bg-success z-index-1 online-status">
-                                        </div>
-                                        <figure class="avatar avatar-60 rounded-15 mb-1 coverimg">
-                                            <img src="assets/assetsrest/img/intro2.jpg" alt="" alt="">
-                                        </figure>
-                                         <p class="text-center size-12"><small class="text-muted">Burger</small><br />$ 41.00</p>
-                                    </div>
-                                </a>                               
-                            </div>
+                            
                         </div>                    
                         <div class="swiper-pagination"></div>
                     </swiper>
@@ -117,7 +48,7 @@
             </div>
 
             <!-- product medsize box  -->
-            <div class="row mb-2">
+          <!--   <div class="row mb-2">
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="card mb-3">
                         <div class="card-body p-1 position-relative">
@@ -250,10 +181,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- offer banner-->
-            <div class="row mb-4">
+    <!--         <div class="row mb-4">
                 <div class="col-12">
                     <div class="card theme-bg overflow-hidden">
                         <div class="position-absolute top-0 end-0">
@@ -269,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- product medsize box no gap -->
             <div class="row mb-4 g-0 ">
@@ -277,7 +208,7 @@
                     <div class="card">
                         <div class="card-body p-0">
                             <div class="row mx-0">
-                                <div class="col-6 col-md-4 col-lg-3 border-end p-3">
+                                <div class="col-6 col-md-4 col-lg-3 border-end p-3" *ngFor='let part of parts$; let i = index' >
                                     <div class="position-relative">
                                         <div class="position-absolute start-0 top-0 z-index-1">
                                             <div class="tag tag-small bg-theme text-white">
@@ -289,14 +220,13 @@
                                                 <i class="bi bi-heart size-10 vm"></i>
                                             </button>
                                         </div>
-                                        <figure class="avatar w-100 rounded-15 h-140 mb-3 coverimg">
-                                            <img src="assets/assetsrest/img/juice1.jpg" alt="" class="w-100">
+                                        <figure class="avatar w-60 rounded-15 h-140 mb-3 coverimg">
+                                            <img src="{{part.images[0]}}" alt="" class="w-100">
                                         </figure>
 
                                         <div class="row">
                                             <div class="col">
-                                                <p class="small"><small class="text-muted size-12">Melon Juice</small><br />$
-                                                    25.00</p>
+                                                <p class="small"><small class="text-muted size-12">{{part.name}}</small><br />${{part.price}}</p>
                                             </div>
                                             <div class="col-auto px-0">
                                                 <button class="btn btn-sm btn-link text-color-theme">
@@ -306,7 +236,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 col-md-4 col-lg-3 p-3">
+                                <!-- <div class="col-6 col-md-4 col-lg-3 p-3">
                                     <div class="position-relative">
                                         <div class="position-absolute start-0 top-0  z-index-1">
                                             <div class="tag tag-small bg-theme text-white">
@@ -332,8 +262,9 @@
                                             </button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
+                        <!-- 
                             <div class="row mx-0 border-top">
                                 <div class="col-6 col-md-4 col-lg-3 border-end p-3">
                                     <div class="position-relative">
@@ -392,13 +323,14 @@
                                     </div>
                                 </div>
                             </div>
+                         -->
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- popular shopping  -->
-            <div class="row mb-3 gap-0">
+            <!-- <div class="row mb-3 gap-0">
                 <div class="col">
                     <h6 class="title">Popular</h6>
                 </div>
@@ -475,7 +407,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
         
