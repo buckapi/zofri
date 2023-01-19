@@ -55,6 +55,33 @@ branchs$:any;
   branchSelected="";
   mensaje="Salida registrada!";
   randomSerial=0;
+  fuelType:any="";
+
+  setFuelType(type:any){
+    this._butler.cars$=[];
+    console.log("entramos con: "+type)
+    if(type=="Bencina"){
+      this._butler.bencinaFlag=!this._butler.bencinaFlag;
+    }
+    if(type=="Diesel"){
+      this._butler.dieselFlag=!this._butler.dieselFlag;
+    }
+    let size =this._butler.originalCars$.length;
+      if(this._butler.bencinaFlag){
+        for(let i =0;i<size;i++){
+        if(this._butler.originalCars$[i].fuelType.name=="Bencina"){
+          this._butler.cars$.push(this._butler.originalCars$[i]);
+        }
+      }
+    }
+      if(this._butler.dieselFlag){
+        for(let i =0;i<size;i++){
+        if(this._butler.originalCars$[i].fuelType.name=="Diesel"){
+          this._butler.cars$.push(this._butler.originalCars$[i]);
+        }
+      }
+    }
+  }
     get f(): { [key: string]: AbstractControl } {
       return this.specialty.controls;
     }

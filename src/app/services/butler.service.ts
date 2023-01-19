@@ -4,7 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Butler {
-
+    bencinaFlag:boolean=true;
+    dieselFlag:boolean=true;
+    noBencina:boolean=false;
+    originalCars$:any=[];
+    cars$:any=[];
     car:any[]=[];
     branchs:any[]=[];
     ticket:any[]=[];

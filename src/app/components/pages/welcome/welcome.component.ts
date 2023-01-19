@@ -12,6 +12,7 @@ export class WelcomeComponent implements AfterViewInit {
 members$:any=[];
 parts$:any=[];
 cars$:any=[];
+originalCars$:any=[];
   constructor(
     private readonly router: Router,
     public _butler:Butler,
@@ -37,7 +38,8 @@ cars$:any=[];
   }
   public getCars(){
     this.dataApiService.getAllCars().subscribe(response=>{
-        this.cars$=response;
+        this._butler.cars$=response;
+        this._butler.originalCars$=response;
       });
   }
   public getMembers(){
