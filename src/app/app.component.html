@@ -215,7 +215,7 @@
 
     <!-- filter menu -->
     <div class="filter">
-        <div class="card shadow h-100">
+        <div class="card shadow h-100" >
             <div class="card-header">
                 <div class="row">
                     <div class="col align-self-center">
@@ -229,7 +229,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body overflow-auto">
+            <div class="card-body overflow-auto" [hidden]="_butler.viewSelected=='parts'" >
                  <div class="form-floating mb-3">
                     <input type="text" class="form-control" placeholder="Buscar">
                     <label for="input-select">Buscar...</label>
@@ -302,21 +302,12 @@
                     </div>
                 </div>
 
-               
-<!-- 
-                <div class="form-floating mb-3">
-                    <select class="form-control" id="discount">
-                        <option>10% </option>
-                        <option>30%</option>
-                        <option>50%</option>
-                        <option>80%</option>
-                    </select>
-                    <label for="discount">Offer Discount</label>
-                </div> -->
+
+
             </div>
-            <div class="card-footer">
+            <!-- <div class="card-footer">
                 <button class="btn btn-default w-100 shadow-sm btn-rounded">Search</button>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- filter menu ends-->
