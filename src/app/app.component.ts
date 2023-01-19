@@ -178,6 +178,12 @@ public openModal(i:any){
 this._butler.modalOption=i;
 
 }
+setView(option:any){
+  if(option=='cars'){this._butler.viewSelected='cars';
+console.log("viewSelected: "+this._butler.viewSelected);}
+  if(option=='parts'){this._butler.viewSelected='parts';
+console.log("viewSelected: "+this._butler.viewSelected);}
+}
     onIsError(): void {
     this.isError = true;
     setTimeout(() => {

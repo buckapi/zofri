@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Butler {
+
     car:any[]=[];
-        branchs:any[]=[];
+    branchs:any[]=[];
     ticket:any[]=[];
     currency:number=1;
     init:number=1;
@@ -25,6 +26,7 @@ export class Butler {
     especialidadesSize:number=0;
     especialistasSize:number=0;
     imagePreviewProduct:string="";
+    viewSelected:string="parts";
       subTotal:number=0;
     review:boolean=false;
     vector:any={};       

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class WelcomeComponent implements AfterViewInit {
 members$:any=[];
 parts$:any=[];
+cars$:any=[];
   constructor(
     private readonly router: Router,
     public _butler:Butler,
@@ -34,6 +35,11 @@ parts$:any=[];
         this.parts$=response;
       });
   }
+  public getCars(){
+    this.dataApiService.getAllCars().subscribe(response=>{
+        this.cars$=response;
+      });
+  }
   public getMembers(){
     this.dataApiService.getAllMembers().subscribe(response=>{
         this.members$=response;
@@ -46,6 +52,7 @@ parts$:any=[];
   ngAfterViewInit(): void {
     this.getMembers();
     this.getParts();
+    this.getCars();
   }
 
 }

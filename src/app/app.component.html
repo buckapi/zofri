@@ -162,10 +162,9 @@
     <footer class="footer">
         <div class="container">
             <ul class="nav nav-pills nav-justified">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">
+                <li class="nav-item" [hidden]="_butler.viewSelected=='cars'">
+                    <a class="nav-link active" (click)="setView('parts')" style="cursor: pointer;">
                         <span>
-                            <!-- <i class="nav-icon bi bi-package"></i> -->
                           <span class="material-symbols-outlined">
                           view_in_ar_new
                           </span>
@@ -173,14 +172,16 @@
                         </span>
                     </a>
                 </li>
-              <!--   <li class="nav-item">
-                    <a class="nav-link" href="stats.html">
+                <li class="nav-item" [hidden]="_butler.viewSelected=='parts'">
+                    <a class="nav-link " (click)="setView('parts')" style="cursor: pointer;">
                         <span>
-                            <i class="nav-icon bi bi-binoculars"></i>
-                            <span class="nav-text">Statistics</span>
+                          <span class="material-symbols-outlined">
+                          view_in_ar_new
+                          </span>
+                            <span class="nav-text">Autopartes</span>
                         </span>
                     </a>
-                </li> -->
+                </li>
                 <li class="nav-item centerbutton">
                     <a href="cart.html" class="nav-link" id="centermenubtn">
                         <span class="theme-linear-gradient">
@@ -188,8 +189,17 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="myorders.html">
+                <li class="nav-item" [hidden]="_butler.viewSelected=='cars'">
+                    <a class="nav-link"  (click)="setView('cars')" style="cursor: pointer;">
+                        <span>
+                            <span class="material-symbols-outlined">
+                            local_car_wash
+                            </span>
+                            <span class="nav-text">Vehiculos</span>
+                        </span>
+                    </a>
+                </li><li class="nav-item" [hidden]="_butler.viewSelected=='parts'">
+                    <a class="nav-link active"  (click)="setView('cars')" style="cursor: pointer;">
                         <span>
                             <span class="material-symbols-outlined">
                             local_car_wash
@@ -198,14 +208,6 @@
                         </span>
                     </a>
                 </li>
-               <!--  <li class="nav-item">
-                    <a class="nav-link" href="wallet.html">
-                        <span>
-                            <i class="nav-icon bi bi-wallet2"></i>
-                            <span class="nav-text">Wallet</span>
-                        </span>
-                    </a>
-                </li> -->
             </ul>
         </div>
     </footer>
@@ -301,7 +303,7 @@
                 </div>
 
                
-
+<!-- 
                 <div class="form-floating mb-3">
                     <select class="form-control" id="discount">
                         <option>10% </option>
@@ -310,7 +312,7 @@
                         <option>80%</option>
                     </select>
                     <label for="discount">Offer Discount</label>
-                </div>
+                </div> -->
             </div>
             <div class="card-footer">
                 <button class="btn btn-default w-100 shadow-sm btn-rounded">Search</button>

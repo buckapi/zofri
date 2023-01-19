@@ -51,6 +51,10 @@ export class DataApiService {
 		const url_api = 'https://db.buckapi.us:9001/api/products';
 		return this.http.get(url_api);
 	}
+	getAllCars(){
+		const url_api = 'https://db.buckapi.us:9001/api/cars';
+		return this.http.get(url_api);
+	}
 	getAllCategories(){
 		const url_api = 'https://db.buckapi.us:9001/api/cards';
 		return this.http.get(url_api);
