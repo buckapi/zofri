@@ -256,17 +256,8 @@
                 </div>
 
                 <div class="form-floating mb-4">
-                    <select class="form-control" id="filtertype">
-                        <option selected>camion</option>
-                        <option>camioneta</option>
-                        <option>citycar</option>
-                        <option>deportivo</option>
-                        <option>furgon</option>
-                        <option>maquinaria</option>
-                        <option>microbus / bus</option>
-                        <option>pickup</option>
-                        <option>station wagon</option>
-                        <option>SUV</option>
+                     <select id="carType" class="form-control wide"[(ngModel)]="carType" (ngModelChange)="setVehicle(carType)" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let vehicle of vehicles, let i = index " [ngValue]="i"> <span   style="cursor:pointer;">{{vehicle.name}}</span></option>
                     </select>
                     <label for="filtertype">Tipo de vehiculo</label>
                 </div>

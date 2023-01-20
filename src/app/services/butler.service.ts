@@ -4,6 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class Butler {
+
+    carType:any={};
+    carTypeSeted:boolean=false;
     bencinaFlag:boolean=true;
     dieselFlag:boolean=true;
     manualFlag:boolean=true;

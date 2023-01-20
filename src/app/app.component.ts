@@ -18,6 +18,7 @@ import { SwiperOptions } from 'swiper';
 import { DeviceDetectorService } from 'ngx-device-detector'
 import { DataService } from '@app/services/data.service'; 
 import { DataApiService } from '@app/services/data-api.service'; 
+import {VEHICLES} from '@services/vehicles.service';
 
 import * as $ from 'jquery';
 @Component({
@@ -26,16 +27,17 @@ import * as $ from 'jquery';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
- deviceInfo:any=null
-branchsSelected:any=false;
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
+    vehicles: any;
+    deviceInfo:any=null
+    branchsSelected:any=false;
     branchs$:any;
     members$: any;
     cards$: any;
     checkOne$:any;
     checkTwo$:any;
     checkThree$:any;
-    checkFour$:any;
+    carType:any;
   public adapter = new DemoFilePickerAdapter(this.http,this._butler);
   public myFiles: FilePreviewModel[] = [];
   public product:any={};
@@ -44,14 +46,14 @@ branchsSelected:any=false;
       'assets/assetsryal/work.png'
     ]
   public options:any=[];
-    public specialtyToDelete :any={};
-    public stylistToDelete :any={};
-    public serviceToDelete :any={};
-    public itemSpecialty :any={};
-    public itemStylisty :any={};
-    public itemService :any={};
-    submittedStylist = false;
-    sendStylistFlag = false;
+  public specialtyToDelete :any={};
+  public stylistToDelete :any={};
+  public serviceToDelete :any={};
+  public itemSpecialty :any={};
+  public itemStylisty :any={};
+  public itemService :any={};
+  submittedStylist = false;
+  sendStylistFlag = false;
   submittedSpecialty = false;
   submittedService = false;
   showB=false;  
@@ -60,6 +62,115 @@ branchsSelected:any=false;
   mensaje="Salida registrada!";
   randomSerial=0;
   fuelType:any="";
+
+
+   specialty: FormGroup = new FormGroup({
+    name: new FormControl('')
+  });
+   stylist: FormGroup = new FormGroup({
+    name: new FormControl('')
+  });
+   service: FormGroup = new FormGroup({
+    name: new FormControl(''),
+    basePrice: new FormControl('')
+
+  });
+
+
+  new: FormGroup = new FormGroup({ 
+  description: new FormControl(''),
+  name: new FormControl(''),
+  price: new FormControl(''),
+  });
+ i=1;
+two=false;
+one=true;
+three=false;
+  public captions: UploaderCaptions = {
+    dropzone: {    
+      title: 'Foto del estilista',
+      or: '',
+      browse: 'Cargar',
+    },
+    cropper: {
+      crop: 'Cortar',
+      cancel: 'Cancelar',
+    },
+    previewCard: {
+      remove: 'Remover',
+      uploadError: 'Error en la carga',
+    },
+  };
+    public isError = false;
+    // public images:any[]=[];
+    public cropperOptions = {
+    minContainerWidth: '300',
+    minContainerHeight: '300',
+  };
+@ViewChild('modal1')  modal1: ElementRef ;
+  config: SwiperOptions = {
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    spaceBetween: 30
+  };
+  title = 'restaurant';
+  color = 'azul';
+element:any;
+public quantity : number=1; 
+public sent : boolean=false; 
+public subTotalGral : number=0; 
+public preview :any={
+  quantity:1,
+  image:"",
+  subTotal:0,
+  product:"",
+
+}; public tixToAdd :any={
+  quantity:1,
+  image:"",
+  subTotal:0,
+  product:"",
+
+}; 
+  constructor(
+    private  http: HttpClient,
+    private formBuilder: FormBuilder,
+    private readonly toastSvc: ToastrService,
+    public script:ScriptService,
+    public bikersScript:BikersService,
+    public _butler:Butler,
+    public router:Router,
+    private elementRef: ElementRef,
+    private deviceService: DeviceDetectorService,
+        public dataApi: DataService,
+    public dataApiService: DataApiService
+  ){
+      this.vehicles=VEHICLES
+    document.getElementById('modal1');
+     this.script.load(     
+      'jquery',
+      'popper',
+      'bundle',
+      'main',
+      'color-scheme',
+      'chart',
+      'progressbar',
+      'swiper',
+      'daterangepicker',
+      'nouislider',
+      'app'
+      )
+      .then(data => {
+      })
+      .catch(error => console.log(error));
+  }
+
+
+
+
 
   setFuelType(type:any){
     if(type=="Bencina"){
@@ -153,114 +264,11 @@ branchsSelected:any=false;
       return this.service.controls;
     }
 
-   specialty: FormGroup = new FormGroup({
-    name: new FormControl('')
-  });
-   stylist: FormGroup = new FormGroup({
-    name: new FormControl('')
-  });
-   service: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    basePrice: new FormControl('')
 
-  });
-
-
-  new: FormGroup = new FormGroup({ 
-  description: new FormControl(''),
-  name: new FormControl(''),
-  price: new FormControl(''),
-  });
- i=1;
-two=false;
-one=true;
-three=false;
-  public captions: UploaderCaptions = {
-    dropzone: {    
-      title: 'Foto del estilista',
-      or: '',
-      browse: 'Cargar',
-    },
-    cropper: {
-      crop: 'Cortar',
-      cancel: 'Cancelar',
-    },
-    previewCard: {
-      remove: 'Remover',
-      uploadError: 'Error en la carga',
-    },
-  };
-    public isError = false;
-    // public images:any[]=[];
-    public cropperOptions = {
-    minContainerWidth: '300',
-    minContainerHeight: '300',
-  };
-@ViewChild('modal1')  modal1: ElementRef ;
-  config: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    spaceBetween: 30
-  };
-  title = 'restaurant';
-  color = 'azul';
-element:any;
-public quantity : number=1; 
-public sent : boolean=false; 
-public subTotalGral : number=0; 
-public preview :any={
-  quantity:1,
-  image:"",
-  subTotal:0,
-  product:"",
-
-}; public tixToAdd :any={
-  quantity:1,
-  image:"",
-  subTotal:0,
-  product:"",
-
-}; 
-  constructor(
-    private  http: HttpClient,
-    private formBuilder: FormBuilder,
-    private readonly toastSvc: ToastrService,
-    public script:ScriptService,
-    public bikersScript:BikersService,
-    public _butler:Butler,
-    public router:Router,
-    private elementRef: ElementRef,
-    private deviceService: DeviceDetectorService,
-        public dataApi: DataService,
-    public dataApiService: DataApiService
-  ){
-    document.getElementById('modal1');
-     this.script.load(     
-      'jquery',
-      'popper',
-      'bundle',
-      'main',
-      'color-scheme',
-      'chart',
-      'progressbar',
-      'swiper',
-      'daterangepicker',
-      'nouislider',
-      'app'
-      )
-      .then(data => {
-      })
-      .catch(error => console.log(error));
-  }
-public setBranch(name:any){
-  console.log('dato: '+name);
-this.itemStylisty.category=name;
-this.branchsSelected=true;
-this.sendStylistFlag=true;
-this.branchSelected=name;
+public setVehicle(selected:any){
+  this._butler.carTypeSeted=true;
+  this._butler.carType=this.vehicles[selected];
+    console.log("selected: "+this._butler.carType.name);
 }
 public openModal(i:any){
 this._butler.modalOption=i;
