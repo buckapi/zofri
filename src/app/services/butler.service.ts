@@ -6,7 +6,10 @@ import { Injectable } from '@angular/core';
 export class Butler {
     bencinaFlag:boolean=true;
     dieselFlag:boolean=true;
-    noBencina:boolean=false;
+    manualFlag:boolean=true;
+    automaticFlag:boolean=true;
+    newFlag:boolean=true;
+    usedFlag:boolean=true;
     originalCars$:any=[];
     cars$:any=[];
     car:any[]=[];

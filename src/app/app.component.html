@@ -284,21 +284,21 @@
                     </div>
                      <h6 class="mb-3">Tipo de transmision</h6>
                     <div class="form-check form-switch mb-2">
-                        <input type="checkbox" class="form-check-input" id="three">
-                        <label class="form-check-label" for="three">manual</label>
+                        <input type="checkbox" class="form-check-input"  checked (click)="setTransmisionType('Manual')" >
+                        <label class="form-check-label" >manual</label>
                     </div>
                     <div class="form-check form-switch mb-2">
-                        <input type="checkbox" class="form-check-input" id="four">
-                        <label class="form-check-label" for="four">automatica</label>
+                        <input type="checkbox" class="form-check-input" checked (click)="setTransmisionType('Automatica')">
+                        <label class="form-check-label" >automatica</label>
                     </div>
                      <h6 class="mb-3">Estado del vehiculo</h6>
                     <div class="form-check form-switch mb-2">
-                        <input type="checkbox" class="form-check-input" id="five">
-                        <label class="form-check-label" for="five">nuevo</label>
+                        <input type="checkbox" class="form-check-input" checked (click)="setVehicleStatus('New')">
+                        <label class="form-check-label" >nuevo</label>
                     </div>
                     <div class="form-check form-switch mb-2">
-                        <input type="checkbox" class="form-check-input" id="six">
-                        <label class="form-check-label" for="six">usado</label>
+                        <input type="checkbox" class="form-check-input"checked (click)="setVehicleStatus('Used')">
+                        <label class="form-check-label" >usado</label>
                     </div>
                 </div>
 

@@ -29,9 +29,13 @@ export class AppComponent implements AfterViewInit {
  deviceInfo:any=null
 branchsSelected:any=false;
   @ViewChild('uploader', { static: true }) uploader: FilePickerComponent;
-branchs$:any;
+    branchs$:any;
     members$: any;
     cards$: any;
+    checkOne$:any;
+    checkTwo$:any;
+    checkThree$:any;
+    checkFour$:any;
   public adapter = new DemoFilePickerAdapter(this.http,this._butler);
   public myFiles: FilePreviewModel[] = [];
   public product:any={};
@@ -58,30 +62,87 @@ branchs$:any;
   fuelType:any="";
 
   setFuelType(type:any){
-    this._butler.cars$=[];
-    console.log("entramos con: "+type)
     if(type=="Bencina"){
       this._butler.bencinaFlag=!this._butler.bencinaFlag;
     }
     if(type=="Diesel"){
       this._butler.dieselFlag=!this._butler.dieselFlag;
     }
-    let size =this._butler.originalCars$.length;
-      if(this._butler.bencinaFlag){
-        for(let i =0;i<size;i++){
-        if(this._butler.originalCars$[i].fuelType.name=="Bencina"){
-          this._butler.cars$.push(this._butler.originalCars$[i]);
-        }
-      }
-    }
-      if(this._butler.dieselFlag){
-        for(let i =0;i<size;i++){
-        if(this._butler.originalCars$[i].fuelType.name=="Diesel"){
-          this._butler.cars$.push(this._butler.originalCars$[i]);
-        }
-      }
-    }
+    this.loader();
   }
+  setTransmisionType(type:any){
+    if(type=="Manual"){
+      this._butler.manualFlag=!this._butler.manualFlag;
+    }
+    if(type=="Automatica"){
+      this._butler.automaticFlag=!this._butler.automaticFlag;
+    }
+    this.loader();
+  }
+  setVehicleStatus(type:any){
+    if(type=="New"){
+      this._butler.newFlag=!this._butler.newFlag;
+    }
+    if(type=="Used"){
+      this._butler.usedFlag=!this._butler.usedFlag;
+    }
+    this.loader();
+  }
+
+  loader(){
+    this.checkOne$=[];
+    this.checkTwo$=[];
+    this.checkThree$=[];
+    this._butler.cars$=[];
+
+    let size =this._butler.originalCars$.length;
+    if(this._butler.bencinaFlag){
+      for(let i =0;i<size;i++){
+        if(this._butler.originalCars$[i].fuelType.name=="Bencina"){
+          this.checkOne$.push(this._butler.originalCars$[i]);
+        }
+      }
+    }
+    if(this._butler.dieselFlag){
+      for(let i =0;i<size;i++){
+        if(this._butler.originalCars$[i].fuelType.name=="Diesel"){
+          this.checkOne$.push(this._butler.originalCars$[i]);
+        }
+      }
+    }
+    let sizeOne = this.checkOne$.length;
+    if(this._butler.manualFlag){
+      for(let i =0;i<sizeOne;i++){
+        if(this.checkOne$[i].transmision.name=="Manual"){
+          this.checkTwo$.push(this.checkOne$[i]);
+        }
+      }
+    }
+    if(this._butler.automaticFlag){
+      for(let i =0;i<sizeOne;i++){
+        if(this.checkOne$[i].transmision.name=="Automatica"){
+           this.checkTwo$.push(this.checkOne$[i]);
+        }
+      }
+    }
+    let sizeTwo = this.checkTwo$.length;
+     if(this._butler.newFlag){
+      for(let i =0;i<sizeTwo;i++){
+        if(this.checkTwo$[i].vehicleStatus.name=="Nuevo"){
+          this.checkThree$.push(this.checkTwo$[i]);
+        }
+      }
+    }
+    if(this._butler.automaticFlag){
+      for(let i =0;i<sizeTwo;i++){
+        if(this.checkTwo$[i].vehicleStatus.name=="Usado"){
+          this.checkThree$.push(this.checkTwo$[i]);
+        }
+      }
+    }
+    this._butler.cars$=this.checkThree$;
+  }
+
     get f(): { [key: string]: AbstractControl } {
       return this.specialty.controls;
     }
