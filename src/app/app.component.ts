@@ -244,7 +244,7 @@ public preview :any={
         }
       }
     }
-    if(this._butler.automaticFlag){
+    if(this._butler.usedFlag){
       for(let i =0;i<sizeTwo;i++){
         if(this.checkTwo$[i].vehicleStatus.name=="Usado"){
           this.checkThree$.push(this.checkTwo$[i]);
